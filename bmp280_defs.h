@@ -34,7 +34,8 @@
 * @date	2020-01-10
 * @version	v3.3.4
 *
-*/#ifndef __BMP280_DEFS_H__
+*/
+#ifndef __BMP280_DEFS_H__
 #define __BMP280_DEFS_H__
 
 /*! CPP guard */
@@ -339,7 +340,7 @@ extern "C" {
 #define BMP280_ST_ADC_P_MAX                  INT32_C(0xFFFF0)
 
 /*! @name Function pointer type definitions */
-typedef int8_t (*bmp280_com_fptr_t)(uint8_t dev_id, uint8_t reg_addr, uint8_t *data, uint16_t len);
+typedef int8_t (*bmp280_com_fptr_t)(void *intf_ptr, uint8_t reg_addr, uint8_t *data, uint16_t len);
 typedef void (*bmp280_delay_fptr_t)(uint32_t period);
 
 /*! @name Calibration parameters' structure */
@@ -388,7 +389,7 @@ struct bmp280_uncomp_data
 struct bmp280_dev
 {
     uint8_t chip_id;
-    uint8_t dev_id;
+    void *intf_ptr;
     uint8_t intf;
     bmp280_com_fptr_t read;
     bmp280_com_fptr_t write;
