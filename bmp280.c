@@ -34,7 +34,8 @@
 * @date	2020-01-10
 * @version	v3.3.4
 *
-*/#include "bmp280.h"
+*/
+#include "bmp280.h"
 
 /********************** Static function declarations ************************/
 
